@@ -1,4 +1,4 @@
-# Pokemon-Data-Collector
+# Pokemon Data Collector
 A program for scraping bulbapedia sources into an offline format usable by other programs
 
 This program uses [Jsoup](https://jsoup.org/) to scrape [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page) for data on the National and Regional Pokedexes, as well as where pokemon can be found. The data is stored in an offline format that can be utilized by other projects so they do not require internet access, and their data can be updated only as needed.
