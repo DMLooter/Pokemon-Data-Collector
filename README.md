@@ -6,8 +6,8 @@ This program uses [Jsoup](https://jsoup.org/) to scrape [Bulbapedia](https://bul
 Currently the program simply does three things:
 1. Download the National Pokedex with the name of every pokemon, their NationalDex #, and what generation they were introduced in.
 2. Download three regional dexes: Gen III Hoenn Dex, Gen VI Hoenn Dex, Gen IV Johto Dex.
-3. Downloads and parses availabilities (where pokemon can be found at what rates) for the regions Kanto, Johto, Hoenn, Sinnoh, Unova, and Kalos.
+3. Downloads and parses availabilities (where pokemon can be found at what rates) for the regions Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, and Alola.
 
 All data is stored in the users home directory, under the folder Pokemon/Data.
 
-More functionality is on the way, including all Regional dexes, Alola and Galar availabilities, and command line options to determine what to download when running the program.
+More functionality is on the way, including all Regional dexes, ~~Alola~~ and Galar availabilities, and command line options to determine what to download when running the program.
