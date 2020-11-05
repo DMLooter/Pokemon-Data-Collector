@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Class that will export the data downloaded to a text file.
- * 
+ *
  * @author Michael
  *
  */
@@ -35,12 +35,12 @@ public class Exporter {
 	/**
 	 * Exports the given list of pokemon as a regionaldex with the specified
 	 * name
-	 * 
+	 *
 	 * @param dex
 	 * @throws IOException
 	 */
-	public static void exportRegionalDex(List<Pokemon> dex, String name) throws IOException {
-		File f = new File(System.getProperty("user.home") + "/Pokemon/Data/RegionalDexes/" + name + ".dex");
+	public static void exportRegionalDex(List<Pokemon> dex, String region, Game game) throws IOException {
+		File f = new File(System.getProperty("user.home") + "/Pokemon/Data/RegionalDexes/" + region + "-" + game + ".dex");
 		f.getParentFile().mkdirs();
 		f.createNewFile();
 		PrintWriter out = new PrintWriter(new FileWriter(f));
@@ -57,7 +57,7 @@ public class Exporter {
 	/**
 	 * Exports the given list of availabilities to a file in the users home
 	 * directory.
-	 * 
+	 *
 	 * @param toExport
 	 *            the list to export
 	 * @throws IOException

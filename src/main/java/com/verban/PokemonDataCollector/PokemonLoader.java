@@ -11,7 +11,7 @@ import org.jsoup.select.Elements;
 
 /**
  * Class to load the list of pokemon from Bulbapedia.
- * 
+ *
  * @author Michael
  *
  */
@@ -201,7 +201,7 @@ public class PokemonLoader { // TODO get this into its own program
 		}
 
 		System.out.println("Loaded: " + count + " Pokémon");
-		Exporter.exportRegionalDex(pokedex, "HoennRSE");
+		Exporter.exportRegionalDex(pokedex, "Hoenn", Game.RSE);
 		return pokedex;
 	}
 
@@ -270,7 +270,7 @@ public class PokemonLoader { // TODO get this into its own program
 		}
 
 		System.out.println("Loaded: " + count + " Pokémon");
-		Exporter.exportRegionalDex(pokedex, "HoennORAS");
+		Exporter.exportRegionalDex(pokedex, "Hoenn", Game.ORAS);
 		return pokedex;
 	}
 
@@ -353,7 +353,7 @@ public class PokemonLoader { // TODO get this into its own program
 		}
 
 		System.out.println("Loaded: " + count + " Pokémon");
-		Exporter.exportRegionalDex(pokedex, "JohtoHGSS");
+		Exporter.exportRegionalDex(pokedex, "Johto", Game.HGSS);
 		return pokedex;
 	}
 }
@@ -364,29 +364,29 @@ public class PokemonLoader { // TODO get this into its own program
  * Gen1:
  * 		Alolan:
  * 		Rattat, Raticate, Raichu, Sandshrew, Sandslash, Vulpix Ninetails, Diglet, Dugtrio, Meowth, Persian, Geodude, Graveler, Golem, Grimer, Muk, Execcutor, Maroak
- * 
+ *
  * Gen2:
  * 		**Unown (but not seperated on the online database)
- * 
+ *
  * Gen3:
  * 		**Castform (weather forms)
  * 		Deoxys (Maybe putin manually)
- * 
+ *
  * Gen4:
  * 		**Burmy, Wormadam (Trash, Plant, Grass) (unsure if wormadam can be encountered in wild.)
  * 		**Shellos & Gastrodon (West vs East Sea) (Again unsure if gastrodon can be wild)
  * 		**Rotom (Appliances)
  * 		**Giratina & Shaymin (Land vs Sky, Origin vs Alternate)
- * 
+ *
  * Gen5:
  * 		**Unfezant ( Male vs Female)
  * 		**Basculin (Red vs Blue
  * 		**Frilish & Jellicent (Male vs Female)
  * 		**Meloetta (Only changes in battle
- * 
+ *
  * Gen 7:
  * 		**Oricorio
- * 
+ *
  * Galarian:
  * 		Meowth, Ponyta, Rapidash, Slowpoke, Slowbro, Slowking, Farfetch'd, Weezing, Mr. Mime, Articuno, Zapdos, Moltres, Corsola, Zigzagoon, Linoone,Darumaka, Darmanitan, Yamask, Stunfisk
  */

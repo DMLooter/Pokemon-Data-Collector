@@ -28,6 +28,7 @@ public class Main {
 
 		//List of likes to pages that have Pokemon
 		LinkedHashSet<String> pages = new LinkedHashSet<String>();
+		// TODO start using lists of game locations
 
 		//Kanto
 		availabilities.addAll(parsePage("https://bulbapedia.bulbagarden.net/wiki/Category:Kanto_locations", "Kanto", pages));
@@ -47,6 +48,8 @@ public class Main {
 		//Kalos
 		availabilities.addAll(parsePage("https://bulbapedia.bulbagarden.net/wiki/Category:Kalos_locations", "Kalos", pages));
 
+		//Alola
+		availabilities.addAll(parsePage("https://bulbapedia.bulbagarden.net/wiki/Category:Alola_locations", "Alola", pages));
 
 		Exporter.exportAvailabilities(availabilities);
 	}
