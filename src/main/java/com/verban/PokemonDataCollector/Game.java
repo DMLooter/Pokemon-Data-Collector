@@ -4,5 +4,5 @@ package com.verban.PokemonDataCollector;
 * @author Michael
 */
 public enum Game {
-	RBY, GSC, RSE, FRLG, HGSS, DPP, BW, B2W2, XY, SM, USUM, ORAS, SWSH;
+	RBY, GSC, RSE, FRLG, HGSS, DPP, BW, B2W2, XY, SM, USUM, ORAS, PE, SWSH;
 }

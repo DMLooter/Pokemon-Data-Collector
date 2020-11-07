@@ -6,4 +6,4 @@ build:
 
 run:
 	mvn clean package
-	java -jar target/PokemonDataCollector-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+	java -jar target/PokemonDataCollector-0.0.3-SNAPSHOT-jar-with-dependencies.jar

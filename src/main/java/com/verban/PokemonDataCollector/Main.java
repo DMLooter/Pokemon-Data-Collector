@@ -19,9 +19,13 @@ import org.jsoup.select.Elements;
  */
 public class Main {
 	public static void main(String[] args) throws IOException {
+		PokemonLoader.loadKantoRBY_FRLG_PEDex();
+		PokemonLoader.loadJohtoGSCDex();
 		PokemonLoader.loadHoennRSEDex();
+		PokemonLoader.loadSinnohDPPDex();
 		PokemonLoader.loadJohtoHGSSDex();
 		PokemonLoader.loadHoennORASDex();
+		PokemonLoader.loadGalarSWSHDex();
 
 		//List of Combinations of Pokemon, Place, Game, and Method
 		List<Availability> availabilities = new LinkedList<Availability>();

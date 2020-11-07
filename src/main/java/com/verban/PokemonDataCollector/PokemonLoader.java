@@ -136,6 +136,154 @@ public class PokemonLoader { // TODO get this into its own program
 		return pokedex;
 	}
 
+	public static List<Pokemon> loadKantoRBY_FRLG_PEDex() throws IOException {
+		LinkedHashSet<String> links = new LinkedHashSet<String>();
+		List<Pokemon> pokedex = new ArrayList<Pokemon>(153);
+		int count = 0;
+
+		Document doc = Jsoup.connect("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kanto_Pok%C3%A9dex_number").get();
+		System.out.println(doc.title());
+
+		//Section 1
+		Element G1 = doc.select("table").get(1);
+		Elements pokemon = G1.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 2
+		Element G2 = doc.select("table").get(2);
+		pokemon = G2.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 3
+		Element G3 = doc.select("table").get(3);
+		pokemon = G3.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		System.out.println("Loaded: " + count + " Pokémon");
+		// RBY and FRLG are the same pokedex
+		Exporter.exportRegionalDex(pokedex, "Kanto", Game.RBY);
+		Exporter.exportRegionalDex(pokedex, "Kanto", Game.FRLG);
+
+		//Lets Go only adds these two (plus alolan forms)
+		pokedex.add(Pokemon.getPokemon("Meltan"));
+		pokedex.add(Pokemon.getPokemon("Melmetal"));
+		Exporter.exportRegionalDex(pokedex, "Kanto", Game.PE);
+
+
+		return pokedex;
+	}
+
+	// AKA New Pokedex
+	public static List<Pokemon> loadJohtoGSCDex() throws IOException {
+		LinkedHashSet<String> links = new LinkedHashSet<String>();
+		List<Pokemon> pokedex = new ArrayList<Pokemon>(251);
+		int count = 0;
+
+		Document doc = Jsoup.connect("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_New_Pok%C3%A9dex_number").get();
+		System.out.println(doc.title());
+
+		//Section 1
+		Element G1 = doc.select("table").get(1);
+		Elements pokemon = G1.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 2
+		Element G2 = doc.select("table").get(2);
+		pokemon = G2.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 3
+		Element G3 = doc.select("table").get(3);
+		pokemon = G3.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 4
+		Element G4 = doc.select("table").get(4);
+		pokemon = G4.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 5
+		Element G5 = doc.select("table").get(5);
+		pokemon = G5.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		System.out.println("Loaded: " + count + " Pokémon");
+		Exporter.exportRegionalDex(pokedex, "Johto", Game.GSC);
+		return pokedex;
+	}
+
 	public static List<Pokemon> loadHoennRSEDex() throws IOException {
 		LinkedHashSet<String> links = new LinkedHashSet<String>();
 		List<Pokemon> pokedex = new ArrayList<Pokemon>(500);
@@ -205,12 +353,13 @@ public class PokemonLoader { // TODO get this into its own program
 		return pokedex;
 	}
 
-	public static List<Pokemon> loadHoennORASDex() throws IOException {
+	// Maybe split DP and Platinum expasnion
+	public static List<Pokemon> loadSinnohDPPDex() throws IOException {
 		LinkedHashSet<String> links = new LinkedHashSet<String>();
-		List<Pokemon> pokedex = new ArrayList<Pokemon>(500);
+		List<Pokemon> pokedex = new ArrayList<Pokemon>(210);
 		int count = 0;
 
-		Document doc = Jsoup.connect("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hoenn_Pok%C3%A9dex_number_(Generation_VI)").get();
+		Document doc = Jsoup.connect("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Sinnoh_Pok%C3%A9dex_number").get();
 		System.out.println(doc.title());
 
 		//Section 1
@@ -270,7 +419,7 @@ public class PokemonLoader { // TODO get this into its own program
 		}
 
 		System.out.println("Loaded: " + count + " Pokémon");
-		Exporter.exportRegionalDex(pokedex, "Hoenn", Game.ORAS);
+		Exporter.exportRegionalDex(pokedex, "Sinnoh", Game.DPP);
 		return pokedex;
 	}
 
@@ -354,6 +503,200 @@ public class PokemonLoader { // TODO get this into its own program
 
 		System.out.println("Loaded: " + count + " Pokémon");
 		Exporter.exportRegionalDex(pokedex, "Johto", Game.HGSS);
+		return pokedex;
+	}
+
+	public static List<Pokemon> loadHoennORASDex() throws IOException {
+		LinkedHashSet<String> links = new LinkedHashSet<String>();
+		List<Pokemon> pokedex = new ArrayList<Pokemon>(500);
+		int count = 0;
+
+		Document doc = Jsoup.connect("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hoenn_Pok%C3%A9dex_number_(Generation_VI)").get();
+		System.out.println(doc.title());
+
+		//Section 1
+		Element G1 = doc.select("table").get(1);
+		Elements pokemon = G1.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 2
+		Element G2 = doc.select("table").get(2);
+		pokemon = G2.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 3
+		Element G3 = doc.select("table").get(3);
+		pokemon = G3.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 4
+		Element G4 = doc.select("table").get(4);
+		pokemon = G4.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		System.out.println("Loaded: " + count + " Pokémon");
+		Exporter.exportRegionalDex(pokedex, "Hoenn", Game.ORAS);
+		return pokedex;
+	}
+
+	public static List<Pokemon> loadGalarSWSHDex() throws IOException {
+		LinkedHashSet<String> links = new LinkedHashSet<String>();
+		List<Pokemon> pokedex = new ArrayList<Pokemon>(500);
+		int count = 0;
+
+		Document doc = Jsoup.connect("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Galar_Pok%C3%A9dex_number").get();
+		System.out.println(doc.title());
+
+		//Section 1
+		Element G1 = doc.select("table").get(1);
+		Elements pokemon = G1.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 2
+		Element G2 = doc.select("table").get(2);
+		pokemon = G2.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 3
+		Element G3 = doc.select("table").get(3);
+		pokemon = G3.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 4
+		Element G4 = doc.select("table").get(4);
+		pokemon = G4.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 5
+		Element G5 = doc.select("table").get(5);
+		pokemon = G5.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 6
+		Element G6 = doc.select("table").get(6);
+		pokemon = G6.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 7
+		Element G7 = doc.select("table").get(7);
+		pokemon = G7.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		//Section 5
+		Element G8 = doc.select("table").get(8);
+		pokemon = G8.select("a");
+
+		for (Element link : pokemon) {
+			if (link.attr("title").contains("Pokémon") && !link.attr("title").contains("List")) {
+				if (links.add(link.attr("title"))) {
+					count++;
+					pokedex.add(Pokemon.getPokemon(link.attr("title").split(" \\(")[0]));
+					System.out.println(link.attr("title").split(" \\(")[0]);
+				}
+			}
+		}
+
+		System.out.println("Loaded: " + count + " Pokémon");
+		Exporter.exportRegionalDex(pokedex, "Galar", Game.SWSH);
 		return pokedex;
 	}
 }
